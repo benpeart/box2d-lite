@@ -20,6 +20,7 @@ Body::Body()
 	force.Set(0.0f, 0.0f);
 	torque = 0.0f;
 	friction = 0.2f;
+	restitution = 0.0f;
 
 	width.Set(1.0f, 1.0f);
 	mass = FLT_MAX;

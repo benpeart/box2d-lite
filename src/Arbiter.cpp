@@ -136,10 +136,10 @@ void Arbiter::ApplyImpulse()
 		// Relative velocity at contact
 		Vec2 dv = b2->velocity + Cross(b2->angularVelocity, c->r2) - b1->velocity - Cross(b1->angularVelocity, c->r1);
 
-		// Compute normal impulse
+		// Compute normal impulse with restitution
+		float e = std::min(b1->restitution, b2->restitution); // Coefficient of restitution
 		float vn = Dot(dv, c->normal);
-
-		float dPn = c->massNormal * (-vn + c->bias);
+		float dPn = c->massNormal * (-(1.0f + e) * vn + c->bias);
 
 		if (World::accumulateImpulses)
 		{

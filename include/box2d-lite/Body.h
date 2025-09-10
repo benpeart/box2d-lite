@@ -38,6 +38,7 @@ struct Body
 	float friction;
 	float mass, invMass;
 	float I, invI;
+	float restitution;
 };
 
 #endif
